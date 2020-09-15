@@ -1,0 +1,141 @@
+\documentclass[12pt, titlepage, oneside]{article}
+
+\input{settings}
+
+\begin{document}
+	
+	\textbf{ELECENG 3TQ3}\\
+	\textbf{Elston A.}
+	
+	\section{Lecture 3}
+	
+	\items
+ \item Probability measure ? For example absolute value is a measure that maps set of real numbers into the set of nonnegative real numbers
+ \item Probability is a function that maps events in sample space to real numbers so that
+ \item For any event A probability of event A is nonnegative $P[A] \geq 0$
+ \item Probability of sample space is 1
+\item For any countable collection $A1,A2,...$ of mutually exclusive events the probability of their union set is equal to sum of individual probabilities $P[A1 \u A2 \u ... \u An] = P[A1] + P[A2] + \dots + P[An]$
+\eitems
+
+
+\subsection{Axioms of Probability}
+
+A probability model assigns a number between 0 and 1 to every event. The probability of the union of mutually exclusive events is the sum of the probabilities of the probabilities of the events in the union.
+
+
+A probability measure $P[\cdot]$ is a function that maps events in the sample spaces to non-negative real numbers such that:
+
+\b{Axiom 1}: For any event $A$, $P[A] \geq 0$.
+
+\b{Axiom 2}: $P[S] = 1$
+
+\b{Axiom 3}: For any countable collection $A1,A2,...$ of mutually exclusive events
+\begin{align}
+P[A1 \u A2 \u \dots ] = P[A1] + P[A2] + \dots
+\end{align}
+
+\subsection{Theorems of Probability}
+
+
+\b{Theorem 1.2}: For mutually exclusive events $A1$ and $A2$.
+\begin{align}
+P[A1 \u A2] = P[A1] + P[A2]
+\end{align}
+
+\b{Theorem 1.3}: If $A = A1 \u A2 \u \dots \u Am$ and $Ai \n Aj = \emptyset$ for $i \neq j$, then
+\begin{align}
+P[A] = \sum_{i=1}^m P[Ai]
+\end{align}
+
+\b{Theorem 1.4}: The probability measure $P[\cdot]$ satisfies
+\items
+\item $P[\emptyset] = 0$
+\item $P[A^c] = 1-P[A]$
+\item For any $A$ and $B$ (not necessary mutually exclusive)
+\begin{align}
+P[A \u B] = P[A] + P [B] - P[A\n B] = P[A] + P[A^c \n B]
+\end{align}
+\item If $A \subset B$, then $P[A] \leq P[B]$
+\eitems
+
+\b{Theorem 1.5}: The probability of an event $B = \{s_1, s_2, \dots, s_m\}$ is the sum of the outcomes contained in the event
+\begin{align}
+P[B] = \sum_{i=1}^{m} P[\{s_i\}]
+\end{align}
+The skeleton for this proof is to see that $B = \{s_1\} \u \{s_2\} \u \dots \u \{s_n\}$ where $\{s_i\} \n \{s_j\} = \emptyset$ if $i \neq j$. Then we apply theorem 1.3. 
+
+\ex Let $s_i$ be the outcome of the event of tossing a coin 4 times. $s_i$ is a 4 letter word describing the 4 tosses. To find the probability of getting $hhht$ or $hhth$ we simply need to add the probability of those individual events.
+
+\subsection{Equally Likely Outcomes}
+If we believe no outcome is more likely than any other. From the axioms of probability this implies that every outcomes has probability $1/n$.
+\begin{align}
+P[s_i] = \frac{1}{n}, \enspace \enspace 1 \leq i \leq n.
+\end{align}
+
+\ex Consider a 6 sided fair die. What is the probability of getting a number larger than 4?
+
+Note that our favorable outcomes is the event set $A = \{5,6\}$. 
+\begin{align}
+P[A] = P[\{5\}] + P[\{6\}] = 1/6 + 1/6 = 1/3
+\end{align}
+
+\subsection{Conditional Probability}
+
+Conditional probability refers to the modified probability model that reflects partial information about the outcome of an experiment. The modified probability has a smaller sample space than the original model.
+
+If we have some knowledge of an event $A$ prior to performing the experiment ($P[A]\approx 1$ or $P[A] \approx 0$ or $P[A]\approx 0.5$) then we call $P[A]$ the priori probability or the prior probability of $A$. 
+
+When we want to state a conditional probability, that is, the probability based on the condition that our knowledge on some other probability is true, we denote this as
+\begin{align}
+P[A|B]
+\end{align}
+We read this as "The probability of A given B". So the priori probability is $P[B]$.
+
+\b{Definition 1.5}: The conditional probability of the event $A$ given the occurrence of the event $B$ is 
+\begin{align}
+P[A|B] =  \frac{P[A \n B]}{P[B]} 
+\end{align}
+The probability of A given B is the probability of A and B divided by the probability of B.
+
+\b{Theorem 1.7}: A conditional probability measure $P[A|B]$ has the following properties that correspond to the axioms of probability
+
+\b{Axiom 1}: $P[A|B] \geq 0$
+
+\b{Axiom 2}: $P[B|B] = 1$
+
+\b{Axiom 3}: If $A = A1 \u A2 \u \dots $ with $Ai \n Aj = \emptyset$ for $i \neq j$ then,
+\begin{align}
+P[A|B] = P[A1|B] + P[A2|B] + \dots
+\end{align}
+
+\ex Lets roll two six sided die. Let $X1$ be the number of dots on he first die and let $X2$ be the number of dots on the second die.
+
+Let $A$ be the event that $X1 \geq 4$.
+
+Let $B$ be the event that $X2 \ge X1 + 1$ 
+
+Find $P[B]$ and $P[A|B]$
+
+The probability to get a number greater than 4 on the first die is $P[A] = 3/6$.
+
+$B = \{ (1,3), (1,4), (1,5), (1,6), (2,4), (2,5), (2,6), (3,5), (3,6), (4,6)\} $
+
+$B \n A = {(4,6)}$
+
+The probability to get a number on die 2 greater than the number on die 1 plus 1 is$P[B] = 10/(6*6)$
+
+The probability for both occurring $P[B|A] = P[B \n A]/P[A] = (1/36)/(3/6) = 1/18 = 0.05$
+
+\subsection{Partitions and The Law of Total Probability}
+A partition divides the sample space into mutually exclusive sets. The law of total probability expresses the probability of an event as the sub of the probabilities of the outcomes that are in the separate sets of a partition.
+
+\b{Theorem 1.10}: Law of Total Probability: For a partition $\{B_1,B_2, \dots, B_n\}$ with $P[B_i] > 0$ for all $i$.
+\begin{align}
+P[A] = \sum_{i=1}^{m} P[A|B_i] P[B_i]
+\end{align}
+
+\b{Theorem 1.11}: Bayes Theorem
+\begin{align}
+P[B|A] = \frac{P[A|B] P[B]}{P[A]}
+\end{align}
+\end{document}

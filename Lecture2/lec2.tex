@@ -1,0 +1,107 @@
+\documentclass[12pt, titlepage, oneside]{article}
+
+\input{settings}
+
+\begin{document}
+	
+	\textbf{ELECENG 3TQ3}\\
+	\textbf{Elston A.}
+
+\section{Lecture 2}
+\subsection{Counting}
+
+We need to sometimes count the number of favorable outcomes in order to determine the probability in many cases. These types of problems can be quite complex and require combinatorics; permutations, combinations, and variations.
+
+\b{Combinations and permuatations} are different arrangements of set elements so that with \b{combinations the order does not matter} while with \b{permutations the order does matter}.
+
+\subsection{Permutations}
+
+
+Permutation is defined as all the possible arrangements of the elements. 
+
+\ex given a set \{1,2,3\} all the possible combinations are 123,132,213,231,312,321. There are 3*2*1 permutations of a set with 3 elements. 
+
+The total number of permutations for a set with $n$ elements is $n! = n * (n-1) * \dots * 2 * 1$ 
+
+To think about this logically, since there are no repetition once an element has been used, it cannot be repeated. So if at first there are $n$ choices as we pick from $n$ elements, the next choice we can only pick from $n-1$ elements. So the total number of combinations we can have is $n!$.
+
+If we were allowed to have repetitions, then we would have $n^n$ possibilities. However in general, we may only have a set of $n$ elements and need to make $m$ choices.
+
+\ex If you have a box with 26 balls and each ball has one letter of the English alphabet. Then you try to pick 3 balls from the box without returning them to the box, many different words can you construct.
+
+The first time you choose, you can get 26 different balls, the next you can only choose 25, and lastly you can only choose 24 different balls. So the total different types of combinations you can choose from is $26*25*24$.
+
+In the example above we have a special case called k-permutations of $n$ or simply 
+
+\begin{align}
+n * (n-1) * \dots * (n-k+1) = \dfrac{n!}{(n-k)!}
+\end{align}
+
+If the balls were placed back into the box whenever we picked one, then we would have a total of $26*26*26 = 26^3$ or simply $n^k$.
+
+\subsection{Combinations}
+
+For combinations \b{order does not matter}!. 
+
+Given $n$ objects pick $k$ regardless of order.  
+
+For example pick $k$ shirts in the closet. How many different shirt combinations are there?
+
+The answer is given by:
+
+\begin{align*}
+{n \choose k} = \frac{n!}{k!(n-k)!} = \frac{n(n-1)\dots (n-k+1)}{k(k-1)\dots1}
+\end{align*}
+
+There are $n * (n-1) * \dots * (n-k+1)$ ways to pick $k$ elements out of $n$ where the order does matter. If the order does not matter then we can divide by $k!$ since there are $k!$ different orders of k elements.
+
+When we say the order does not matter it means that we see $"abc" = "bac"$ since they contain the same letters. So given a set of 26 lower case characters and we had to pick 3 unique characters, then we would get $"abc"$ or $"bac"$ which is simply 26*25*24, but now if we said that it does not matter which way the order is then we have
+\begin{align*}
+ \frac{26*25*24}{3!}
+\end{align*}
+
+
+\subsection{Combinations with Repetition}
+
+Let's say you have 5 different ice cream and 3 scoops, how many different flavors options do you have?
+
+Since the question does not mention distinct scoops, we always assume it is not distinct. Since the ice cream flavors do not disappear after being chosen, we have a problem with repetition. The formula for such a condition is
+
+\begin{align}
+{n + k - 1 \choose k}  = \frac{(n+k-1)!}{k! (n-1)!} =
+ \frac{ (n + k -1)*\dots*n (n-1)!}{k! (n-1)!} = \frac{(n+k-1)*\dots*n}{k!} 
+\end{align}
+
+\subsection{Definitions}
+
+\b{Outcome} is any possible observation
+
+\b{Sample Space} is all the possible distinct outcomes
+
+\b{Procedure} is what you do in the experiment
+
+\b{Observation} is what you record
+
+\b{Event} is a subset of the sample space that contains favorable outcomes
+
+\b{Event Space} is the space that contains specific outcomes. \ex instead of recording heads or tails of two coins being thrown \{hh,ht,th,tt\} we could instead record the outcome based on an event. Let B0 be the event that 0 tails are present, B1 be the event that one coin is tails, B2 be the event that both coins are tails. By recording event space, you are losing resolution (meaning you know the event B1 means one coin was tails, but you cannot say th or ht), but are gaining a better understanding of your data for what you want to analyze.
+
+
+\subsection{Mutually Exclusive }
+
+Consider an example of tossing a coin 4 times:
+
+\{tttt,ttth,ttht,tthh,thtt,thth,thht,thhh,httt,htth,htht,hthh,hhtt,hhth,hhht,hhhh\}
+
+Let $Bi$ be the event of having $i$ number of heads.
+
+So to find the event $A$ which is the number of heads is less than or equal to 3 we simply have
+\begin{align*}
+A = B0 \u B1 \u B2 \u B3
+\end{align*}
+
+
+
+\end{document}
+
+
