@@ -1,0 +1,125 @@
+\documentclass[12pt, titlepage, oneside]{article}
+
+\input{settings}
+
+\begin{document}
+	
+	\textbf{ELECENG 3TQ3}\\
+	\textbf{Elston A.}
+	
+\section{Lecture 6}
+
+\subsection{Discrete Random Variables}
+
+We assign number to the outcomes in sample space. Once we observe a number, we refer to that observation by a random variable.
+Each random variable has a range we denote as $S_X$.
+
+
+
+A probability model always begins with an experiment. Each random variable is directly related to this experiment. There are 3 types of relationships (how random variables can be related to your experiment):
+
+\items
+\item The random variable is the observation
+\item The random variable is a function of the observation
+\item The random variable is a function of another random variable
+\eitems
+
+\b{Random variable is the observation:} The experiment is to attach a photo detector to an optical fiber and count the number of photons arriving in a one microsecond time interval. Each observation is a random variable $X$. The range of $X$ is $S_X = \{0,1,2,\dots\}$. In this case $S_X$ and the range $X$ is identical.
+
+A better example is if we wanted to determine the number of cars passing through a particular intersection at a particular time during a particular time interval range.
+
+\b{Random variable is a function of an observation}: If we had a class of 30 students and wanted to determine the number of students who got an A- or better. Then the sample space would be the final grades, but the random variable is the number of students who achieved an A- or better. 
+
+\b{Random variable is  is a function of another random variable}: number of new daily COVID cases is a random variable $X$, we introduce a new random variable $Y$ as estimated cost to OHIP. Obviously $Y$ depends on $X$ hence $Y=f(X)$. 
+	
+	
+\b{Definition}: A random variable consists of an experiment with a probabilistic measure $P[\cdot]$ defined on a sample space $S$ and a function that assigns a real number to each outcome in the sample space of the experiment.
+
+\subsection{Discrete vs. Continuous}
+
+Example of a discrete random variable are the number of cars in a parking lot, or the number of lights in a room. Since we have a number for each value in the range $S_X$ as there cannot be $0.51323\dots$ of a car, we understand these variables as discrete.
+
+Example of a continuous random variable is the amount of time it takes to travel from Square One to McMaster University. Since the range $S_X$ is time, time has an infinite range and is continuous. So if the range is continuous, then the random variable is continuous. 
+
+\b{Definition:} $X$ is a discrete random variable if the range of $X$ is a countable set.
+
+\b{Definition:} $X$ is a finite random variable if the range is a finite set.
+
+\subsection{Probability Mass Function}
+
+The probability mass function (PMF) of the discrete random variable $X$
+\begin{align}
+P_X(x) = P[X=x]
+\end{align}
+The above means, what is the probability the random variable $X$ takes the value $x$.
+
+\subsection{Equivalent Properties to PMF}
+
+$\forall x \in S_X$, $P_X(x) \geq 0$, means that the probability of any outcome cannot be a negative number.
+
+$\sum_{x\in S_X} P_X(x) = 1$, means the sum of all outcomes in the range of where the probability is define is equal to 1. 
+
+For any event $B \subset S_X$, the probability that $X$ is in the set $B$ is $P[B] = \sum_{x\in B} P_X(x)$, means that the probability that $X$ is in $B$ is the sum of all the probabilities in $B$.
+
+\subsection{Bernoulli Distribution}
+
+$X$ is a Bernoulli distribution ($p$) random variable if the PMF of $X$ has the following form
+
+\begin{align}
+P_X(x) = \begin{cases} 1-p, & x = 0 \\ p, & x = 1\\ 0 & \mbox{otherwise}  \end{cases}
+\end{align}
+
+The parameter $p \in (0,1)$ or simply $ 0 < p < 1$.
+
+\subsection{Geometric Random Variables}
+
+$X$ has a geometric ($p$) random variable if it has a distribution 
+\begin{align}
+P_X(x) = \begin{cases} p(1-p)^{(x-1)} & x = 1,2,\dots \\ 0 & \mbox{otherwise}\end{cases}
+\end{align}
+
+The parameter $p$ is in the range $0 < p < 1$.
+
+\subsection{Pascal Distribution}
+If you conduct an experiment with $N$ trials including up to and including $k$ successes. Then if we define the success probability of success as $p$. Then we have a pascal distribution if the PMF has the following form
+
+\begin{align}
+P_X(k,p) = {x-1 \choose k-1}p^k (1-p)^k
+\end{align}
+
+Example: find the pmf of random variables described as number of tests until we get k failed tests. 
+
+
+\subsection{Discrete Uniform Random Variable}
+
+If all the outcomes have the same probability of outcomes then the pmf can be defined as follows. 
+
+The distribution is a function on the limits of it's sample space range. 
+
+Let $X$ be in the range $K \leq X \leq L$. In other words, $S_X = {K, \dots, L}$. The pmf $U(K,L)$ of a uniform random variable is
+\begin{align}
+P[X = x]  = \frac{1}{L-K+1}
+\end{align}
+
+\subsection{Poisson Random Variable}
+
+Models phenomenon occurring randomly in time. Each instance in time is random, but there is a known average number occurring in a given time.
+
+\begin{align}
+f(x) = \begin{cases} \frac{ \alpha^x \exp{-\alpha}}{x!}, & x=1,2,3,\dots \\ 0 & \mbox{otherwise} \end{cases}
+\end{align}
+
+An example would be the number of customers arriving to the Ministry of Transportation per time interval.
+
+\subsection{Cumulative Distribution Function}
+
+A cumulative distributive function is denoted as follows:
+$F_X(x) = P[X \leq x]$. For any discrete random variable $X$ with range $S_X = {x_1, x_2, \dots}$ satisfying $x_1 \leq x_2 \leq \dots$ the following properties hold.
+
+\items
+\item $F(-\infty) = 0$ and $F(\infty) = 1$
+\item For all $x' \geq x, F(x') \geq F(x)$
+\item For $x_i \in S_X$ and let $\epsilon$ be an arbitrarily small number $F(x_i) - F(x_i - \epsilon) = P_X(x_i)$
+\item $F_X(x) = F_X(x_i)$ for all $x$ such that $x_i \leq x \le x_{i+1}$
+\eitems
+\end{document}
